@@ -1,13 +1,23 @@
-import React from "react";
-import "../stylesheets/main.scss";
+/**
+ * App component
+ */
+import React from 'react';
+import Menu from "./common/Menu";
+export default class App extends React.Component
+{
 
-// app component
-export default class App extends React.Component {
-  // render
-  render() {
+  render()
+  {
+    // render
     return (
       <div className="container">
-        {this.props.children}
+        <div className="row">
+          <Menu/>
+        </div>
+        <div className="row">
+          {this.props.children}
+        </div>
+
       </div>
     );
   }

@@ -1,12 +1,16 @@
-import React from "react";
+/**
+ * Created by sthavisomboon on 7/3/17.
+ */
+import React from 'react';
 
-// Not found page component
-export default class NotFound extends React.Component {
-  // render
-  render() {
-    return (
-      <div className="page-not-found">
-        <h4>Page not found</h4>
+
+export default class NotFound extends React.Component
+{
+  render()
+  {
+    return(
+      <div>
+        <h4>Page Not Found</h4>
       </div>
     );
   }

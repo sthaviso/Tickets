@@ -1,12 +1,17 @@
-import React from "react";
+/**
+ * Created by sthavisomboon on 7/3/17.
+ */
+import React from 'react';
 
-// Home page component
-export default class Home extends React.Component {
-  // render
-  render() {
-    return (
-      <div className="page-home">
-        <h4>Hello world!</h4>
+import TicketApp from './common/TicketApp';
+
+export default class Home extends React.Component
+{
+  render()
+  {
+    return(
+      <div>
+        <TicketApp/>
       </div>
     );
   }
