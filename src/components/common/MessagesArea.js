@@ -9,19 +9,28 @@ class MessagesArea extends React.Component
 {
   render()
   {
-    var messages = this.props.ticket.messages.map(function(msg) {
-      return <MessageElement key={msg.key} message={msg} />;
-    });
+    if (this.props.ticket) {
+      var messages = this.props.ticket.messages.map(function (msg) {
+        return <MessageElement key={msg.key} message={msg}/>;
+      });
 
-    return (
-      <div className="chat_area">
+      return (
+        <div className="chat_area">
           <Panel header={this.props.ticket.title}>
-          <ul className="list-unstyled">
-            {messages}
-          </ul>
-        </Panel>
-      </div>
-    );
+            <ul className="list-unstyled">
+              {messages}
+            </ul>
+          </Panel>
+        </div>
+      );
+    } else {
+      return (
+        <div className="chat_area">
+          <Panel header='Conversation'>
+          </Panel>
+        </div>
+      );
+    }
   }
 }
 
@@ -36,7 +45,7 @@ function mapStateToProps(state) {
     }
   }
   return( {
-    ticket: state.tickets.list[0]
+    ticket: undefined,
   });
 }
 
