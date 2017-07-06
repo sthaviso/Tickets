@@ -2,7 +2,8 @@
  * Created by sthavisomboon on 6/29/17.
  */
 import React from 'react';
-
+import { connect } from 'react-redux';
+import { getUserById } from '../../reducers/index';
 const _agentCls = {
   'adminCls':'',
   'imgCls':'pull-left',
@@ -15,15 +16,15 @@ const _adminCls = {
   'timestampCls':'pull-left'
 };
 
-export default class MessageElement extends React.Component
+class MessageElement extends React.Component
 {
   render()
   {
-      let styleCls = this.props.message.isAdmin ? _adminCls : _agentCls;
+      let styleCls = this.props.user.isAdmin ? _adminCls : _agentCls;
       return (
         <li className={"left clearfix " + styleCls.adminCls}>
           <span className={"chat-img1 " + styleCls.imgCls}>
-               <img src={this.props.message.img} alt="User Avatar" className="img-circle"/>
+               <img src={this.props.user.img} alt="User Avatar" className="img-circle"/>
           </span>
           <div className="chat-body1 clearfix">
             <p>{this.props.message.question}</p>
@@ -33,3 +34,12 @@ export default class MessageElement extends React.Component
       );
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    message : props.message,
+    user: getUserById(state, props.message.userId),
+  };
+}
+
+export default connect(mapStateToProps)(MessageElement);

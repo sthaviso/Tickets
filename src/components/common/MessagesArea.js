@@ -12,7 +12,7 @@ class MessagesArea extends React.Component
   {
     if (this.props.ticket) {
       var messages = this.props.ticket.messages.map(function (msg) {
-        return <MessageElement key={msg.key} message={msg}/>;
+        return <MessageElement key={msg.key} message={msg} userId={msg.userId}/>;
       });
 
       return (

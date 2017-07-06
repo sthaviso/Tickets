@@ -4,6 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {ListGroupItem} from "react-bootstrap";
+import { getUserById } from '../../reducers/index';
 
 class TicketListElement extends React.Component
 {
@@ -18,8 +19,8 @@ class TicketListElement extends React.Component
 
   render()
   {
-    const img = this.props.ticket.img;
-    const name = this.props.ticket.name;
+    const img = this.props.user.img;
+    const name = this.props.user.name;
     const timestamp = this.props.ticket.timestamp;
     const title = this.props.ticket.title;
     const key = this.props.ticket.key;
@@ -52,5 +53,10 @@ class TicketListElement extends React.Component
 
 
 
-
-export default connect()(TicketListElement);
+function mapStateToProps(state, props) {
+  return {
+    ticket : props.ticket,
+    user: getUserById(state, props.ticket.userId),
+  };
+}
+export default connect(mapStateToProps)(TicketListElement);
