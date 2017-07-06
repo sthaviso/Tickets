@@ -22,7 +22,7 @@ class MessageElement extends React.Component
   {
       let styleCls = this.props.user.isAdmin ? _adminCls : _agentCls;
       return (
-        <li className={"left clearfix " + styleCls.adminCls}>
+        <li className={"left clearfix messageItem " + styleCls.adminCls}>
           <span className={"chat-img1 " + styleCls.imgCls}>
                <img src={this.props.user.img} alt="User Avatar" className="img-circle"/>
           </span>
