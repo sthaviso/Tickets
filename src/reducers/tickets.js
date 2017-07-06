@@ -2,20 +2,23 @@
  * Created by sthavisomboon on 6/29/17.
  */
 // tickets reducer
-export default function tickets(state = {}, action) {
-  let new_state;
-  new_state = JSON.parse(JSON.stringify(state));
+export default function tickets(state = {list:[]}, action) {
   switch (action.type) {
     case 'TICKETS_FETCH_SUCCESS':
-      let t = action.tickets.map((ticket, index) => ticket.clicked = (index === 0));
-      new_state.list = action.tickets;
-      return new_state;
-    case 'TICKETS_CLICKED':
-      new_state.list = state.list.map(ticket => {
-        ticket.clicked = (ticket.key === action.key);
-        return ticket;
+      return Object.assign({}, state, {
+        list: action.tickets.map((ticket, index) => {
+          ticket.clicked = (index === 0);
+          return ticket;
+        })
       });
-      return new_state;
+
+    case 'TICKETS_CLICKED':
+      return Object.assign({}, state, {
+        list: state.list.map(ticket => {
+          ticket.clicked = (ticket.key === action.key);
+          return ticket;
+        })
+      });
     // initial state
     default:
       return state;
