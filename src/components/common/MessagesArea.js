@@ -5,6 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MessageElement from './MessageElement';
 import { Panel } from 'react-bootstrap';
+import { getSelectedTicket } from '../../reducers/index';
 class MessagesArea extends React.Component
 {
   render()
@@ -35,18 +36,7 @@ class MessagesArea extends React.Component
 }
 
 function mapStateToProps(state) {
-  for (const index in state.tickets.list){
-    if (state.tickets.list[index].key === state.selectedTicketKey) {
-      return (
-        {
-          ticket: state.tickets.list[index]
-        }
-      )
-    }
-  }
-  return( {
-    ticket: undefined,
-  });
+  return {ticket : getSelectedTicket(state)};
 }
 
 export default connect(mapStateToProps)(MessagesArea);

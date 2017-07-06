@@ -12,7 +12,7 @@ export default class TicketApp extends React.Component
   {
     return (
       <Grid>
-        <Row className="show-grid">
+        <Row key="1" className="show-grid">
           <Col md={6} className="colPanel" >
             <TicketList/>
           </Col>

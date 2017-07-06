@@ -24,7 +24,7 @@ class TicketListElement extends React.Component
     const title = this.props.ticket.title;
     const key = this.props.ticket.key;
     return (
-      <ListGroupItem key={key}  onClick={() => this.ticketClicked(key)}>
+      <ListGroupItem key={key} active={this.props.clicked} onClick={() => this.ticketClicked(key)}>
         <span className="chat-img pull-left">
           <img src={img} alt="User Avatar" className="img-circle"/>
         </span>

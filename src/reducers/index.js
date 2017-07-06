@@ -1,8 +1,7 @@
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 import { reducer as formReducer } from "redux-form";
-import tickets from './tickets';
-import selectedTicketKey from './selectedTicketKey'
+import tickets , * as fromTickets from './tickets';
 
 // main reducers
 export const reducers = combineReducers({
@@ -19,5 +18,6 @@ export const reducers = combineReducers({
     }
   }),
   tickets: tickets,
-  selectedTicketKey: selectedTicketKey,
 });
+
+export const getSelectedTicket = (state) => fromTickets.getSelectedTicket(state.tickets);

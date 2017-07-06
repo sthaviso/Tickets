@@ -23,11 +23,11 @@ class TicketList extends React.Component
     if (this.props.tickets.length) {
       return (
         <div>
-          <Panel className="colPanel" header="Conversation">
+          <Panel className="colPanel" header="Conversations">
             <ListGroup>
               {this.props.tickets.map((ticket, index) => {
                 return (
-                  <TicketListElement key={ticket.id} ticket={ticket}/>
+                  <TicketListElement key={ticket.key} ticket={ticket} clicked={ticket.clicked}/>
                 );
               })}
             </ListGroup>
