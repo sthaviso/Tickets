@@ -11,7 +11,7 @@ export default function tickets(state = [], action) {
         });
     case 'TICKETS_CLICKED':
       return state.map(ticket => {
-          ticket.clicked = (ticket.key === action.key);
+          ticket.clicked = (ticket.id === action.id);
           return ticket;
         });
     // initial state
@@ -20,7 +20,30 @@ export default function tickets(state = [], action) {
   }
 }
 
-export const getSelectedTicket = (state) => {
+const getSelectedTicket = (state) => {
   return state ? state.find(ticket => ticket.clicked) : undefined;
+}
+
+export const getMainTickets = (state = []) => {
+  return state.filter(ticket => ticket.id === ticket.parentId);
+}
+
+const getTicketThreadByParentId = (state, id) => {
+  return state.filter(ticket => ticket.parentId === id);
+}
+
+export const getSelectedTicketThread = (state) => {
+  let mainTicket = getSelectedTicket(state);
+  if(mainTicket) {
+    return {
+      title: mainTicket.text,
+      messages: getTicketThreadByParentId(state, mainTicket.id),
+    };
+  } else {
+    return {
+      title: '',
+      messages: undefined,
+    };
+  }
 }
 

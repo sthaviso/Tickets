@@ -22,10 +22,10 @@ class TicketListElement extends React.Component
     const img = this.props.user.img;
     const name = this.props.user.name;
     const timestamp = this.props.ticket.timestamp;
-    const title = this.props.ticket.title;
-    const key = this.props.ticket.key;
+    const text = this.props.ticket.text;
+    const id = this.props.ticket.id;
     return (
-      <ListGroupItem key={key} active={this.props.clicked} onClick={() => this.ticketClicked(key)}>
+      <ListGroupItem active={this.props.clicked} onClick={() => this.ticketClicked(id)}>
         <span className="chat-img pull-left">
           <img src={img} alt="User Avatar" className="img-circle"/>
         </span>
@@ -35,18 +35,18 @@ class TicketListElement extends React.Component
             {timestamp}</strong>
           </div>
           <div className="contact_sec">
-            <strong className="primary-font">{title}</strong> <span className="badge pull-right">3</span>
+            <strong className="primary-font">{text}</strong> <span className="badge pull-right">3</span>
           </div>
         </div>
       </ListGroupItem>
     );
   }
 
-  ticketClicked(key)
+  ticketClicked(id)
   {
     this.props.dispatch({
       type: 'TICKETS_CLICKED',
-      key: key,
+      id: id,
     });
   }
 }

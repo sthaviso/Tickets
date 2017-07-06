@@ -5,6 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TicketListElement from './TicketListElement';
 import { ListGroup, Panel, ProgressBar } from 'react-bootstrap';
+import { getMainTickets } from '../../reducers/index';
 
 class TicketList extends React.Component
 {
@@ -27,7 +28,7 @@ class TicketList extends React.Component
             <ListGroup>
               {this.props.tickets.map((ticket, index) => {
                 return (
-                  <TicketListElement key={ticket.key} ticket={ticket} clicked={ticket.clicked}/>
+                  <TicketListElement key={ticket.id} ticket={ticket} clicked={ticket.clicked}/>
                 );
               })}
             </ListGroup>
@@ -44,7 +45,7 @@ class TicketList extends React.Component
 
 function mapStateToProps(state) {
   return( {
-    tickets: state.tickets || [],
+    tickets: getMainTickets(state) || [],
   });
 }
 

@@ -8,63 +8,68 @@ export default class ApiUsers {
       setTimeout(() => {
         let tickets = { tickets: [
           {
-            'key' : 1,
-            'userId' : 1,
-            'timestamp' : '09:45AM',
-            'title' : 'What is my vacation policy?',
-            'messages' : [{
-              'key' : '1',
-              'question': 'What is my vacation policy?',
-              'channel' : 'e-mail',
-              'time' : '30 mins ago',
-              'userId' : 1
-            },{
-              'key' : '2',
-              'question': 'We have an unlimited vacation time off.',
-              'channel' : 'e-mail',
-              'time' : '15 mins ago',
-              'userId' : 4,
-            }]
+            'id': 1,
+            'userId': 1,
+            'timestamp': '09:45AM',
+            'text': 'What is my vacation policy?',
+            'channel': 'email',
+            'time': '30 mins ago',
+            'parentId': 1
           },
           {
-            'key' : 2,
-            'timestamp' : '08:45AM',
-            'title' : 'I need help setting up a printer.',
-            'userId' : 2,
-            'messages' : [{
-              'key' : '1',
-              'question': 'I need help setting up a printer',
-              'channel' : 'e-mail',
-              'time' : '30 mins ago',
-              'userId' : 2
-            },{
-              'key' : '2',
-              'question': 'Sure. Where are you located?',
-              'channel' : 'e-mail',
-              'time' : '15 mins ago',
-              'userId' : 4,
-            }]
-
+            'id': 2,
+            'userId': 4,
+            'timestamp': '09:45AM',
+            'text': 'We have an unlimited vacation time off.',
+            'channel': 'email',
+            'time': '15 mins ago',
+            'parentId': 1
           },
           {
-            'key' : 3,
-            'timestamp' : '07:45AM',
-            'title' : 'How long is my maternity leave?',
-            'userId' : 3,
-            'messages' : [{
-              'key' : '1',
-              'question': 'How long is my maternity leave?',
-              'channel' : 'e-mail',
-              'time' : '30 mins ago',
-              'userId' : 3,
-            },{
-              'key' : '2',
-              'question': '90 days',
-              'channel' : 'e-mail',
-              'time' : '15 mins ago',
-              'userId' : 4,
-            }]
-          }
+            'id': 3,
+            'userId': 2,
+            'timestamp': '08:45AM',
+            'text': 'I need help setting up a printer.',
+            'channel': 'email',
+            'time': '30 mins ago',
+            'parentId': 3
+          },
+          {
+            'id': 4,
+            'userId': 4,
+            'timestamp': '08:45AM',
+            'text': 'Sure. Where are you located?',
+            'channel': 'email',
+            'time': '15 mins ago',
+            'parentId': 3
+          },
+          {
+            'id': 5,
+            'userId': 3,
+            'timestamp': '07:45AM',
+            'text': 'How long is my maternity leave?',
+            'channel': 'email',
+            'time': '30 mins ago',
+            'parentId': 5
+          },
+          {
+            'id': 6,
+            'userId': 4,
+            'timestamp': '07:45AM',
+            'text': '90 days',
+            'channel': 'email',
+            'time': '15 mins ago',
+            'parentId': 5
+          },
+          {
+            'id': 7,
+            'userId': 3,
+            'timestamp': '07:45AM',
+            'text': 'Thank you!',
+            'channel': 'email',
+            'time': '10 mins ago',
+            'parentId': 5
+          },
         ],
         users: [
           {
@@ -91,8 +96,6 @@ export default class ApiUsers {
             name : 'Agent Haris',
             isAdmin : true,
           }
-
-
         ]};
         resolve(tickets);
       }, timeout);

@@ -27,7 +27,7 @@ class MessageElement extends React.Component
                <img src={this.props.user.img} alt="User Avatar" className="img-circle"/>
           </span>
           <div className="chat-body1 clearfix">
-            <p>{this.props.message.question}</p>
+            <p>{this.props.message.text}</p>
             <div className={"chat_time " + styleCls.timestampCls}><em>via {this.props.message.channel}</em>, {this.props.message.time}</div>
           </div>
         </li>

@@ -5,19 +5,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MessageElement from './MessageElement';
 import { Panel } from 'react-bootstrap';
-import { getSelectedTicket } from '../../reducers/index';
+import { getSelectedTicketThread } from '../../reducers/index';
 class MessagesArea extends React.Component
 {
   render()
   {
-    if (this.props.ticket) {
-      var messages = this.props.ticket.messages.map(function (msg) {
-        return <MessageElement key={msg.key} message={msg} userId={msg.userId}/>;
+    if (this.props.messages) {
+      var messages = this.props.messages.map(function (msg) {
+        return <MessageElement key={msg.id} message={msg} userId={msg.userId}/>;
       });
 
       return (
         <div className="chat_area">
-          <Panel header={this.props.ticket.title}>
+          <Panel header={this.props.title}>
             <ul className="list-unstyled">
               {messages}
             </ul>
@@ -36,7 +36,7 @@ class MessagesArea extends React.Component
 }
 
 function mapStateToProps(state) {
-  return {ticket : getSelectedTicket(state)};
+  return getSelectedTicketThread(state);
 }
 
 export default connect(mapStateToProps)(MessagesArea);

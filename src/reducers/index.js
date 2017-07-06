@@ -22,6 +22,7 @@ export const reducers = combineReducers({
   users: users,
 });
 
-export const getSelectedTicket = (state) => fromTickets.getSelectedTicket(state.tickets);
+export const getMainTickets = (state) => fromTickets.getMainTickets(state.tickets);
+export const getSelectedTicketThread = (state) => fromTickets.getSelectedTicketThread(state.tickets);
 
 export const getUserById = (state, id) => fromUsers.getUserById(state.users, id);
