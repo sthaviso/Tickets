@@ -1,6 +1,8 @@
 /**
  * Created by sthavisomboon on 7/4/17.
  */
+import firebase from '../firebase';
+
 export default class ApiUsers {
   static getTickets(action) {
     const timeout = 1000;
@@ -13,8 +15,34 @@ export default class ApiUsers {
             'timestamp': '09:45AM',
             'text': 'What is my vacation policy?',
             'channel': 'email',
+            'time': '30 mins ago'
+          },
+          {
+            'id': 2,
+            'userId': 2,
+            'timestamp': '08:45AM',
+            'text': 'I need help setting up a printer.',
+            'channel': 'email',
+            'time': '30 mins ago'
+          },
+          {
+            'id': 3,
+            'userId': 3,
+            'timestamp': '07:45AM',
+            'text': 'How long is my maternity leave?',
+            'channel': 'email',
+            'time': '30 mins ago'
+          },
+        ],
+        messages: [
+          {
+            'id': 1,
+            'userId': 1,
+            'timestamp': '09:45AM',
+            'text': 'What is my vacation policy?',
+            'channel': 'email',
             'time': '30 mins ago',
-            'parentId': 1
+            'ticketId': 1
           },
           {
             'id': 2,
@@ -23,7 +51,7 @@ export default class ApiUsers {
             'text': 'We have an unlimited vacation time off.',
             'channel': 'email',
             'time': '15 mins ago',
-            'parentId': 1
+            'ticketId': 1
           },
           {
             'id': 3,
@@ -32,7 +60,7 @@ export default class ApiUsers {
             'text': 'I need help setting up a printer.',
             'channel': 'email',
             'time': '30 mins ago',
-            'parentId': 3
+            'ticketId': 2
           },
           {
             'id': 4,
@@ -41,7 +69,7 @@ export default class ApiUsers {
             'text': 'Sure. Where are you located?',
             'channel': 'email',
             'time': '15 mins ago',
-            'parentId': 3
+            'ticketId': 2
           },
           {
             'id': 5,
@@ -50,7 +78,7 @@ export default class ApiUsers {
             'text': 'How long is my maternity leave?',
             'channel': 'email',
             'time': '30 mins ago',
-            'parentId': 5
+            'ticketId': 3
           },
           {
             'id': 6,
@@ -59,7 +87,7 @@ export default class ApiUsers {
             'text': '90 days',
             'channel': 'email',
             'time': '15 mins ago',
-            'parentId': 5
+            'ticketId': 3
           },
           {
             'id': 7,
@@ -68,7 +96,7 @@ export default class ApiUsers {
             'text': 'Thank you!',
             'channel': 'email',
             'time': '10 mins ago',
-            'parentId': 5
+            'ticketId': 3
           },
         ],
         users: [

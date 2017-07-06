@@ -45,7 +45,7 @@ class TicketList extends React.Component
 
 function mapStateToProps(state) {
   return( {
-    tickets: getMainTickets(state) || [],
+    tickets: state.tickets || [],
   });
 }
 

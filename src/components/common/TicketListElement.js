@@ -55,7 +55,6 @@ class TicketListElement extends React.Component
 
 function mapStateToProps(state, props) {
   return {
-    ticket : props.ticket,
     user: getUserById(state, props.ticket.userId),
   };
 }

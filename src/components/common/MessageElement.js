@@ -37,7 +37,6 @@ class MessageElement extends React.Component
 
 function mapStateToProps(state, props) {
   return {
-    message : props.message,
     user: getUserById(state, props.message.userId),
   };
 }

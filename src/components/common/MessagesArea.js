@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MessageElement from './MessageElement';
 import { Panel } from 'react-bootstrap';
-import { getSelectedTicketThread } from '../../reducers/index';
+import { getSelectedTicket, getTicketMessages } from '../../reducers/index';
 class MessagesArea extends React.Component
 {
   render()
@@ -36,7 +36,8 @@ class MessagesArea extends React.Component
 }
 
 function mapStateToProps(state) {
-  return getSelectedTicketThread(state);
+  let ticket = getSelectedTicket(state);
+  return getTicketMessages(state, ticket);
 }
 
 export default connect(mapStateToProps)(MessagesArea);
