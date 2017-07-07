@@ -3,7 +3,7 @@
  */
 export default function messages(state = [], action) {
   switch (action.type) {
-    case 'TICKETS_FETCH_SUCCESS':
+    case 'MESSAGES_FETCH_SUCCESS':
       return action.messages;
     // initial state
     default:
@@ -21,11 +21,13 @@ export const getTicketMessages = (state, mainTicket) => {
     return {
       title: mainTicket.text,
       messages: getMessagesByTicketId(state, mainTicket.id),
+      ticketId: mainTicket.id,
     };
   } else {
     return {
       title: '',
       messages: undefined,
+      ticketId: undefined,
     };
   }
 }
