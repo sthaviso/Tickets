@@ -2,7 +2,7 @@
  * Created by sthavisomboon on 7/4/17.
  */
 import {call, put} from 'redux-saga/effects';
-import ApiUsers from '../api/tickets';
+import ApiUsers from '../api/index';
 
 export function* ticketsFetch(action) {
   // call the api to get the users
@@ -15,4 +15,8 @@ export function* ticketsFetch(action) {
     messages: messages,
     users: users,
   });
+}
+
+export function* seedFirebase(action) {
+  yield call(ApiUsers.seedFirebase);
 }

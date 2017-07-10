@@ -3,11 +3,12 @@
  */
 import { takeLatest } from 'redux-saga';
 import { fork } from 'redux-saga/effects';
-import { ticketsFetch } from './tickets';
+import { ticketsFetch, seedFirebase } from './tickets';
 import { messagesFetch } from './messages';
 export function* sagas() {
   yield [
-    fork(takeLatest, 'ticketsFetch', ticketsFetch),
-    fork(takeLatest, 'messagesFetch', messagesFetch)
+    fork(takeLatest, 'FETCH_TICKETS', ticketsFetch),
+    fork(takeLatest, 'FETCH_MESSAGES', messagesFetch),
+    fork(takeLatest, 'SEED_FIREBASE', seedFirebase)
   ];
 }

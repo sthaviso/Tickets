@@ -14,7 +14,7 @@ const TicketList = ({tickets,users, onTicketClick}) => {
             {tickets.map((ticket, index) => {
               return (
                 <TicketListElement key={ticket.id} ticket={ticket}
-                                   clicked={ticket.clicked} user={users[ticket.id]}
+                                   clicked={ticket.clicked} user={users[ticket.userId]}
                                    onTicketClick = {() => {onTicketClick(ticket.id);}}
                 />
               );

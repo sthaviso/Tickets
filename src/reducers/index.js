@@ -26,6 +26,4 @@ export const reducers = combineReducers({
 
 export const getSelectedTicket = (state) => fromTickets.getSelectedTicket(state.tickets);
 
-export const getUserById = (state, id) => fromUsers.getUserById(state.users, id);
-
-export const getTicketMessages = (state, ticket) => fromMessages.getTicketMessages(state.messages, ticket, fromUsers.getUserMap(state.users));
+export const getTicketMessages = (state, ticket) => fromMessages.getTicketMessages(state.messages, ticket, state.users);

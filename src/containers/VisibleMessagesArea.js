@@ -6,17 +6,18 @@ import { connect } from 'react-redux';
 import MessagesArea from '../components/MessagesArea';
 
 import { getSelectedTicket, getTicketMessages } from '../reducers/index';
+import { fetchMessages } from '../actions/index';
 
 class VisibleMessagesArea extends React.Component {
   componentDidMount() {
     if (this.props.ticketId) {
-      this.props.fetchMessages();
+      this.props.fetchMessages(this.props.ticketId);
     }
   }
 
   componentDidUpdate(prevProps) {
     if ((this.props.ticketId !== prevProps.ticketId)){
-      this.props.fetchMessages();
+      this.props.fetchMessages(this.props.ticketId);
     }
   }
 
@@ -32,11 +33,8 @@ const mapStateToProps = (state) => {
   return getTicketMessages(state, ticket);
 };
 
-const mapDispatchToProps = (dispatch, ownProps) =>({
-    fetchMessages: () => (dispatch({
-      type: 'messagesFetch',
-      ticketId: ownProps.ticketId,
-    }))
+const mapDispatchToProps = (dispatch) =>({
+    fetchMessages: (ticketId) => (dispatch(fetchMessages(ticketId))),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VisibleMessagesArea);

@@ -9,7 +9,7 @@ export default function tickets(state = [], action) {
           ticket.clicked = (index === 0);
           return ticket;
         });
-    case 'TICKETS_CLICKED':
+    case 'CLICK_TICKET':
       return state.map(ticket => {
           ticket.clicked = (ticket.id === action.id);
           return ticket;
