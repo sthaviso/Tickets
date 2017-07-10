@@ -28,4 +28,4 @@ export const getSelectedTicket = (state) => fromTickets.getSelectedTicket(state.
 
 export const getUserById = (state, id) => fromUsers.getUserById(state.users, id);
 
-export const getTicketMessages = (state, ticket) => fromMessages.getTicketMessages(state.messages, ticket);
+export const getTicketMessages = (state, ticket) => fromMessages.getTicketMessages(state.messages, ticket, fromUsers.getUserMap(state.users));

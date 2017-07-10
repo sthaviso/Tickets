@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import TicketApp from './common/TicketApp';
+import TicketApp from './TicketApp';
 
 export default class Home extends React.Component
 {

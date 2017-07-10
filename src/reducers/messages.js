@@ -16,18 +16,20 @@ const getMessagesByTicketId = (state, id) => {
   return state.filter(message => message.ticketId === id);
 }
 
-export const getTicketMessages = (state, mainTicket) => {
+export const getTicketMessages = (state, mainTicket, users) => {
   if(mainTicket) {
     return {
       title: mainTicket.text,
       messages: getMessagesByTicketId(state, mainTicket.id),
       ticketId: mainTicket.id,
+      users: users,
     };
   } else {
     return {
       title: '',
       messages: undefined,
       ticketId: undefined,
+      users: users,
     };
   }
 }

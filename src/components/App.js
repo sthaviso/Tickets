@@ -2,7 +2,7 @@
  * App component
  */
 import React from 'react';
-import Menu from "./common/Menu";
+import Menu from "./Menu";
 export default class App extends React.Component
 {
 
