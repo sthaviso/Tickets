@@ -10,36 +10,32 @@ import { getMainTickets } from '../reducers/index';
 class VisibleTicketList extends React.Component
 {
   componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
     this.props.fetchData();
   }
+
   render()
   {
     return (<TicketList {...this.props} />);
   }
 }
 
-function mapStateToProps(state) {
-  return( {
-    tickets: state.tickets || [],
-    users: state.users || []
-  });
-}
+const mapStateToProps = (state) => ({
+  tickets: state.tickets || [],
+  users: state.users || []
+});
 
-function mapDispatchToProps(dispatch) {
-  return({
-    onTicketClick: (id) => (dispatch({
-        type: 'TICKETS_CLICKED',
-        id: id,
-      }
-    )),
-    fetchData: () => (dispatch({
-      type: 'ticketsFetch'
-    }))
-  });
-}
+
+const mapDispatchToProps = (dispatch) => ({
+  onTicketClick: (id) => (
+    dispatch({
+      type: 'TICKETS_CLICKED',
+      id: id,
+    }
+  )),
+  fetchData: () => (
+    dispatch({
+    type: 'ticketsFetch'
+  }))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(VisibleTicketList);

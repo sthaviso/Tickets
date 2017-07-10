@@ -10,13 +10,13 @@ import { getSelectedTicket, getTicketMessages } from '../reducers/index';
 class VisibleMessagesArea extends React.Component {
   componentDidMount() {
     if (this.props.ticketId) {
-      this.fetchMessages();
+      this.props.fetchMessages();
     }
   }
 
   componentDidUpdate(prevProps) {
     if ((this.props.ticketId !== prevProps.ticketId)){
-      this.fetchMessages();
+      this.props.fetchMessages();
     }
   }
 
@@ -25,18 +25,18 @@ class VisibleMessagesArea extends React.Component {
       <MessagesArea {...this.props}/>
     );
   }
-
-  fetchMessages() {
-    this.props.dispatch({
-      type: 'messagesFetch',
-        ticketId: this.props.ticketId,
-    });
-  }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   let ticket = getSelectedTicket(state);
   return getTicketMessages(state, ticket);
-}
+};
 
-export default connect(mapStateToProps)(VisibleMessagesArea);
+const mapDispatchToProps = (dispatch, ownProps) =>({
+    fetchMessages: () => (dispatch({
+      type: 'messagesFetch',
+      ticketId: ownProps.ticketId,
+    }))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(VisibleMessagesArea);
