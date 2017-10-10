@@ -5,6 +5,11 @@ export default function messages(state = [], action) {
   switch (action.type) {
     case 'MESSAGES_FETCH_SUCCESS':
       return action.messages;
+    case 'MESSAGE_SUBMIT_SUCCESS':
+    return [
+      ...state,
+      action.message
+      ]
     // initial state
     default:
       return state;

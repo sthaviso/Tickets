@@ -14,3 +14,22 @@ export function* messagesFetch(action) {
     messages: messages,
   });
 }
+
+
+let currentMessageId = 8;
+
+export function* messageSubmit(action) {
+  let message = {
+          'createdBy': action.currentUser.id,
+          'timestamp': Date.now(),
+          'text': action.message,
+          'channel': 'email',
+          'ticketId': action.ticket.id,
+          'readStatus': true
+        };
+  const messageId = yield call(ApiUsers.messageSubmit, message);
+  yield put({
+    type: 'MESSAGE_SUBMIT_SUCCESS',
+    message: Object.assign({}, message, {id: messageId}),
+  });
+}

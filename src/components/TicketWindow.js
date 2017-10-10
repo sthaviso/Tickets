@@ -4,7 +4,7 @@
 
 import React from 'react';
 import MessagesArea from '../containers/VisibleMessagesArea';
-import MessageInput from './MessageInput';
+import MessageInput from '../containers/VisibleMessageInput';;
 
 const TicketWindow = () => (
   <div className="TicketWindow">

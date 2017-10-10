@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import TicketList from '../containers/VisibleTicketList';
-import TicketWindow from './TicketWindow';
+import TicketWindow from '../containers/VisibleTicketWindow';
 import { Grid, Col, Row } from 'react-bootstrap';
 
 const TicketApp = () => (

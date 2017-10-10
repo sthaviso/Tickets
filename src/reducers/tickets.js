@@ -6,12 +6,17 @@ export default function tickets(state = [], action) {
   switch (action.type) {
     case 'TICKETS_FETCH_SUCCESS':
       return action.tickets.map((ticket, index) => {
-          ticket.clicked = (index === 0);
+          ticket.clicked = false;
           return ticket;
         });
     case 'CLICK_TICKET':
       return state.map(ticket => {
-          ticket.clicked = (ticket.id === action.id);
+          if (ticket.id === action.id) {
+            ticket.clicked = true;
+            ticket.unreadMessagesCount = 0;
+          } else {
+            ticket.clicked = false;
+          }
           return ticket;
         });
     // initial state
@@ -27,6 +32,3 @@ export const getSelectedTicket = (state) => {
 export const getMainTickets = (state = []) => {
   return state.filter(ticket => ticket.id === ticket.parentId);
 }
-
-
-

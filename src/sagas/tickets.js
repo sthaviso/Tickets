@@ -20,3 +20,7 @@ export function* ticketsFetch(action) {
 export function* seedFirebase(action) {
   yield call(ApiUsers.seedFirebase);
 }
+
+export function* ticketClicked(action) {
+  yield call(ApiUsers.clickTicket, action.id);
+}

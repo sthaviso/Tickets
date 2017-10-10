@@ -6,117 +6,123 @@ export const tickets =
   { tickets: [
     {
       'id': 1,
-      'userId': 1,
+      'createdBy': 1,
       'timestamp': '09:45AM',
       'text': 'What is my vacation policy?',
       'channel': 'email',
-      'time': '30 mins ago'
+      'status' : 'open',
+      'priority' : 'high',
+      'unreadMessagesCount' : 3
     },
     {
       'id': 2,
-      'userId': 2,
+      'createdBy': 2,
       'timestamp': '08:45AM',
       'text': 'I need help setting up a printer.',
       'channel': 'email',
-      'time': '30 mins ago'
+      'status' : 'open',
+      'priority' : 'high',
+      'unreadMessagesCount' : 2
     },
     {
       'id': 3,
-      'userId': 3,
+      'createdBy': 3,
       'timestamp': '07:45AM',
       'text': 'How long is my maternity leave?',
       'channel': 'email',
-      'time': '30 mins ago'
+      'status' : 'open',
+      'priority' : 'high',
+      'unreadMessagesCount' : 1
     },
   ],
     messages: [
       {
         'id': 1,
-        'userId': 1,
+        'createdBy': 1,
         'timestamp': '09:45AM',
         'text': 'What is my vacation policy?',
         'channel': 'email',
-        'time': '30 mins ago',
-        'ticketId': 1
+        'ticketId': 1,
+        'readStatus' : true
       },
       {
         'id': 2,
-        'userId': 4,
+        'createdBy': 4,
         'timestamp': '09:45AM',
         'text': 'We have an unlimited vacation time off.',
         'channel': 'email',
-        'time': '15 mins ago',
-        'ticketId': 1
+        'ticketId': 1,
+        'readStatus' : true
       },
       {
         'id': 3,
-        'userId': 2,
+        'createdBy': 2,
         'timestamp': '08:45AM',
         'text': 'I need help setting up a printer.',
         'channel': 'email',
-        'time': '30 mins ago',
-        'ticketId': 2
+        'ticketId': 2,
+        'readStatus' : true
       },
       {
         'id': 4,
-        'userId': 4,
+        'createdBy': 4,
         'timestamp': '08:45AM',
         'text': 'Sure. Where are you located?',
         'channel': 'email',
-        'time': '15 mins ago',
-        'ticketId': 2
+        'ticketId': 2,
+        'readStatus' : true
       },
       {
         'id': 5,
-        'userId': 3,
+        'createdBy': 3,
         'timestamp': '07:45AM',
         'text': 'How long is my maternity leave?',
         'channel': 'email',
-        'time': '30 mins ago',
-        'ticketId': 3
+        'ticketId': 3,
+        'readStatus' : true
       },
       {
         'id': 6,
-        'userId': 4,
+        'createdBy': 4,
         'timestamp': '07:45AM',
         'text': '90 days',
         'channel': 'email',
-        'time': '15 mins ago',
-        'ticketId': 3
+        'ticketId': 3,
+        'readStatus' : true
       },
       {
         'id': 7,
-        'userId': 3,
+        'createdBy': 3,
         'timestamp': '07:45AM',
         'text': 'Thank you!',
         'channel': 'email',
-        'time': '10 mins ago',
-        'ticketId': 3
+        'ticketId': 3,
+        'readStatus' : true
       },
     ],
     users: [
       {
         id : 1,
-        img : 'https://randomuser.me/api/portraits/men/79.jpg',
+        avatar : 'https://randomuser.me/api/portraits/men/79.jpg',
         name : 'Jack Sparrow',
-        isAdmin : false,
+        userType : 'E'
       },
       {
         id : 2,
-        img : 'https://randomuser.me/api/portraits/men/26.jpg',
+        avatar : 'https://randomuser.me/api/portraits/men/26.jpg',
         name : 'John Doe',
-        isAdmin : false,
+        userType : 'E'
       },
       {
         id : 3,
-        img : 'https://randomuser.me/api/portraits/women/45.jpg',
+        avatar : 'https://randomuser.me/api/portraits/women/45.jpg',
         name : 'Jane Doe',
-        isAdmin : false,
+        userType : 'E'
       },
       {
         id : 4,
-        img : 'https://randomuser.me/api/portraits/men/38.jpg',
+        avatar : 'https://randomuser.me/api/portraits/men/38.jpg',
         name : 'Agent Haris',
-        isAdmin : true,
+        userType : 'A'
       }]
   };

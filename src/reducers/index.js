@@ -4,6 +4,7 @@ import { reducer as formReducer } from "redux-form";
 import tickets , * as fromTickets from './tickets';
 import users , * as fromUsers from './users';
 import messages, * as fromMessages from './messages';
+import agent from './agent';
 
 // main reducers
 export const reducers = combineReducers({
@@ -22,6 +23,7 @@ export const reducers = combineReducers({
   tickets: tickets,
   users: users,
   messages: messages,
+  agent: agent,
 });
 
 export const getSelectedTicket = (state) => fromTickets.getSelectedTicket(state.tickets);

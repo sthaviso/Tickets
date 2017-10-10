@@ -22,7 +22,11 @@ export default class Api {
       });
     }).then (snapshot => {
       // return map of users
-      result.users = snapshot.val();
+      let users = snapshot.val();
+      for(let user in users) {
+        users[user].id = user;
+      }
+      result.users = users;
       return result;
     });
   }
@@ -31,8 +35,12 @@ export default class Api {
     return new Promise(resolve => {
       firebase.database().ref('messages/'+ ticketId).on('value', resolve);
     }).then( snapshot => {
+        let messages = snapshot.val();
+        for(let message in messages) {
+          messages[message].id = message;
+        }
        // return array of messages
-        return { messages: Object.values(snapshot.val())};
+        return { messages: Object.values(messages)};
     });
   }
 
@@ -51,21 +59,32 @@ export default class Api {
         userMap[user.id] = userId;
       }
     );
-
+    let start = new Date();
+    start.setDate(start.getDate() - 5);
     tickets.tickets.forEach(
       ticket => {
-        let newTicket = Object.assign({}, ticket, {userId: userMap[ticket.userId]});
+        let newTicket = Object.assign({}, ticket, {createdBy: userMap[ticket.createdBy], timestamp: start.getTime()});
         let ticketId = ticketsRef.push(newTicket).key;
         let ticketIdRef = firebase.database().ref('messages/' + ticketId);
         tickets.messages.map( message => {
           if (message.ticketId === ticket.id){
-            let newMessage = Object.assign({}, message, {ticketId : ticketId, userId: userMap[message.userId]});
+            let newMessage = Object.assign({}, message, {ticketId : ticketId, createdBy: userMap[message.createdBy], timestamp: start.getTime()});
+            start.setHours(start.getHours() + 1);
             ticketIdRef.push(newMessage);
           }
-        })
+        });
+        start.setDate(start.getDate() + 1);
       }
     );
+  }
 
+  static messageSubmit(message) {
+      let ticketIdRef = firebase.database().ref('messages/' + message.ticketId);
+      return ticketIdRef.push(message).key;
+  }
 
+  static clickTicket(id) {
+    let ticketIdRef = firebase.database().ref('tickets/' + id + '/unreadMessagesCount');
+    return ticketIdRef.set(0);
   }
 }

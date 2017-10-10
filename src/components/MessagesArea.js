@@ -8,7 +8,7 @@ import { Panel, ProgressBar } from 'react-bootstrap';
 const MessagesArea = ({messages, title, users, isFetching}) => {
   if (messages && messages.length > 0) {
     var messages = messages.map((msg) => (
-      <MessageElement key={msg.id} message={msg} user={users[msg.userId]}/>));
+      <MessageElement key={msg.id} message={msg} user={users[msg.createdBy]}/>));
 
     return (
       <div className="chat_area">
@@ -23,7 +23,6 @@ const MessagesArea = ({messages, title, users, isFetching}) => {
     return (
       <div className="chat_area">
         <Panel header={title}>
-          <ProgressBar active now={100}/>
         </Panel>
       </div>
     );

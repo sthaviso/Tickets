@@ -20,3 +20,12 @@ export const clickTicket = (id) => (
     id: id,
   }
 );
+
+export const submitMessage = (message, ticket, currentUser) => (
+  {
+    type: 'SUBMIT_MESSAGE',
+    message: message,
+    ticket: ticket,
+    currentUser: currentUser,
+  }
+);
