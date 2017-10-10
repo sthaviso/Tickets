@@ -21,7 +21,6 @@ const MessageElement = ({user, message}) => {
   if (user.userType === 'E') {
     styleCls = _employeeCls;
   }
-  let nowTime = Date.now();
   return (
     <li className={"left clearfix messageItem " + styleCls.adminCls}>
           <span className={"chat-img1 " + styleCls.imgCls}>
